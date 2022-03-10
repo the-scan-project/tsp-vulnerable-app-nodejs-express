@@ -39,8 +39,8 @@ This project uses:
 testing purposes.**
 
 Requirements:
-* [NodeJS and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-* [Docker](https://www.docker.com/)
+* NodeJS
+* Docker
 
 To run the code locally:
 
