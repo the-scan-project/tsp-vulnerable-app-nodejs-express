@@ -1,18 +1,18 @@
-var { Client } = require('pg')
-var express = require("express");
+const { Client } = require('pg')
+const express = require('express')
 
-var port = 8080;
+const port = 8080
 
-var client = new Client({
-  user: "postgres",
-  password: "mysecretpassword",
-  host: "localhost",
+const client = new Client({
+  user: 'postgres',
+  password: 'mysecretpassword',
+  host: 'localhost',
   port: 5432,
-  database: "postgres",
+  database: 'postgres',
 })
 client.connect()
 
-var main = async () => {
+const main = async () => {
   await client.query(`
     create table if not exists users
     (
@@ -25,33 +25,31 @@ var main = async () => {
     create unique index if not exists users_id_uindex on users (id);
   `)
 
-  var unused = "unused variable";
-
-  var app = express();
+  const app = express()
 
   app.get('/hello', function (req, res) {
     res.send(`Hello, ${req.query.name}`)
   })
 
-  app.set("view engine", "pug");
+  app.set('view engine', 'pug')
 
   app.get('/view', function (req, res) {
-    res.render("hello", { name: req.query.name })
+    res.render('hello', { name: req.query.name })
   })
 
   app.get('/user/:id', async function (req, res) {
     try {
-      var user = await client.query(`select *
-                                     from users
-                                     where id = ${req.params.id}`)
-      res.send(user.rows[0]);
+      const user = await client.query(`select *
+                                       from users
+                                       where id = ${req.params.id}`)
+      res.send(user.rows[0])
     } catch (e) {
       console.error(e.message)
-      res.send({ "error": e.message });
+      res.send({ 'error': e.message })
     }
   })
 
-  app.listen(port);
+  app.listen(port)
 
   return `Listening on port ${port}`
 }

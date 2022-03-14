@@ -23,12 +23,7 @@ This project uses:
 
 ### Other issues
 
-* There is at least one unused variable
 * The project has no tests
-* A few `var` instead
-  of `const` ([ESlint rule: `no-var`](https://eslint.org/docs/rules/no-var))
-* Style is inconsistent. E.g. a [Standard Style](https://standardjs.com/) linter
-  would complain.
 
 ## Running this code
 
