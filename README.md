@@ -14,9 +14,9 @@ This project uses:
 
 ## Security issues
 
-| Vulnerability Type                     | Description                                                                                                                                                                      | Location                                                                      | PoC Command                                                                                                                        |
-|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Hardcoded credentials                  | There are secrets in the code committed to the repository                                                                                                                        | `POSTGRES_PASSWORD=mysecretpassword`<br/><br/>`password: "mysecretpassword",` | N/A                                                                                                                                |
+| Vulnerability Type | Description | Location | PoC Command |
+|--------------------|-------------|----------|-------------|
+| --                 | --          | --       | --          |
 
 ### Other issues
 
@@ -45,5 +45,5 @@ npm i
 docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 
 # Start the application
-npm run start
+PGUSER=postgres PGPASSWORD=mysecretpassword PGDATABASE=postgres npm run start
 ```

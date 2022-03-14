@@ -3,13 +3,7 @@ const express = require('express')
 
 const port = 8080
 
-const client = new Client({
-  user: 'postgres',
-  password: 'mysecretpassword',
-  host: 'localhost',
-  port: 5432,
-  database: 'postgres',
-})
+const client = new Client()
 client.connect()
 
 const main = async () => {
