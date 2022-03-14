@@ -8,8 +8,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "*",
-    "pg": "*",
-    "pug": "*"
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "pug": "^3.0.2"
   }
 }

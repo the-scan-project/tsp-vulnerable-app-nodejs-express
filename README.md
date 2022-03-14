@@ -25,7 +25,6 @@ This project uses:
 
 * There is at least one unused variable
 * The project has no tests
-* The project dependencies are not locked
 * A few `var` instead
   of `const` ([ESlint rule: `no-var`](https://eslint.org/docs/rules/no-var))
 * Style is inconsistent. E.g. a [Standard Style](https://standardjs.com/) linter
