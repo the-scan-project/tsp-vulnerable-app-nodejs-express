@@ -28,7 +28,9 @@ const main = async () => {
   const app = express()
 
   app.get('/hello', function (req, res) {
-    res.send(`Hello, ${req.query.name}`)
+    res
+      .set('Content-Type', 'text/plain')
+      .send(`Hello, ${req.query.name}`)
   })
 
   app.set('view engine', 'pug')
