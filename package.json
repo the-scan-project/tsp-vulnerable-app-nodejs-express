@@ -10,7 +10,6 @@
   "dependencies": {
     "express": "*",
     "pg": "*",
-    "pug": "*",
-    "lodash": "4.17.20"
+    "pug": "*"
   }
 }

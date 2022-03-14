@@ -20,7 +20,6 @@ This project uses:
 | Cross Site Scripting (XSS)             | The `/view` endpoint uses a template engine to say `"Hello, $name"` and misuses template syntax, leaving the user input unescaped.                                               | `p!= 'Hello, ' + name`                                                        | <http://localhost:8080/view?name=%3Cscript%3Ealert(1)%3C/script%3E>                                                                |
 | Hardcoded credentials                  | There are secrets in the code committed to the repository                                                                                                                        | `POSTGRES_PASSWORD=mysecretpassword`<br/><br/>`password: "mysecretpassword",` | N/A                                                                                                                                |
 | SQL Injection (SQLi)                   | The SQL query is constructed using string concatenation instead of using a parameterized query                                                                                   | ``client.query(`select * from users where id = ${req.params.id}`)``           | <http://localhost:8080/user/1;drop%20table%20users></br></br>`sqlmap -u localhost:8080/user/1 --all`                               |
-| Use of a vulnerable (outdated) library | This project includes`lodash` library version with known vulnerabilities                                                                                                         | `"lodash": "4.17.20"`                                                         | [CVE-2021-23337](https://www.cvedetails.com/cve/CVE-2021-23337/), [CVE-2020-28500](https://www.cvedetails.com/cve/CVE-2020-28500/) |
 
 ### Other issues
 
@@ -29,7 +28,6 @@ This project uses:
 * The project dependencies are not locked
 * A few `var` instead
   of `const` ([ESlint rule: `no-var`](https://eslint.org/docs/rules/no-var))
-* Library `lodash` is declared but never used
 * Style is inconsistent. E.g. a [Standard Style](https://standardjs.com/) linter
   would complain.
 
